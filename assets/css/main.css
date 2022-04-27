@@ -1,20 +1,20 @@
 /* root for variables */
 :root {
     /* color palette */
-    --strips: #222283;
-    --text-light: #fff6d1;
+    --strips: #2a2a69;
+    --text-light: #b9b8b4;
     --backgrounds: #1f1a1af3;
     --brightborder: #df9100;
+    --primary-highlight: #8b0000;
+    --secondary-hightlight: #add8e6;
 }
-* {
+* {     /* stopping some annoying margin/padding issues */
     margin: 0 auto;
     padding: 0;
 }
-/* changing html default text pixel size to 10 for easier use of rem */
-html {
+html {  /* changing html default text pixel size to 10 for easier use of rem */
     font-size: 62.5%;
 }
-
 body {
     display: flex; /* flex for simpler responsiveness */
     flex-direction: column; /* column for mobile-first */
@@ -25,10 +25,9 @@ body {
 }
 header {
     justify-content: center; /* centering all content */
-    background-color: var(--strips);
-    width: 100%;
+    background-color: var(--strips); /* to pop out from background */
+    width: 100%; /* shows as a strip across entire screen */
 }
-/* format h1 text */
 h1 {
     margin: 0; /* removing margin so there isn't extra space, screen size is a premium */
     font-size: 4rem; /* 40 pixels */
@@ -36,19 +35,12 @@ h1 {
     padding-top: 2%; /* padding for readability, phones often are crowded at the top */
     margin-top: 0; /* removes white line from top */
     padding-bottom: 1%; /* readability */
-    background-color: var(--strips); /* background color */
+    background-color: var(--backgrounds); /* background color */
     width: 100%;
 }
-#portrait {
-    background-color: var(--strips); /* background color for in case screen scales up beyond max img size */
-}
-/* setting image scale up with screen but max size */
 #portrait img {
-    display: block;
-    width: 100%;
-    max-width: 800px;
+    width: 100%; /* so image does not spill out */
 }
-/* flex display for our nav, some alignment stuff */
 nav {
     display: flex;
     font-size: 1.5rem;
@@ -61,6 +53,7 @@ nav a {
     width: 33.33%;
     padding: 1%; /* a little space for increased readability */
     text-decoration: none;
+    color: var(--text-light); /* text color, have to set here to override user agent stylesheet */
 }
 
 h2 {
@@ -68,6 +61,7 @@ h2 {
     font-size: 2.5rem;
     border-bottom: var(--brightborder) 3px groove;
     border-top: var(--brightborder) 3px groove;
+    width: 100%;
 }
 
 .aboutme p {
@@ -78,7 +72,11 @@ h2 {
 }
 
 nav a:hover {
-    background-color: var(--darkblue);
+    background-color: var(--primary-highlight);
+}
+
+nav a:active {
+    color: var(--secondary-hightlight);
 }
 /* display properties limited to mobile */
 @media screen and (min-width: 480px) {
@@ -133,8 +131,4 @@ nav a:hover {
     #computer {
         display: block;
     }
-}
-
-br {
-    display: none
 }
