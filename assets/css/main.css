@@ -6,7 +6,7 @@
     --backgrounds: #1f1a1af3;
     --brightborder: #df9100;
     --primary-highlight: #8b0000;
-    --secondary-hightlight: #add8e6;
+    --secondary-hightlight: #2a85ec;
 }
 * {     /* stopping some annoying margin/padding issues */
     margin: 0 auto;
@@ -38,15 +38,19 @@ h1 {
     background-color: var(--backgrounds); /* background color */
     width: 100%;
 }
+div {
+    width: 100%; /* so child elements width works with screen size */
+}
 #portrait img {
-    width: 100%; /* so image does not spill out */
+    width: 100%; /* so image does not cause scrolling */
+    max-width:  600px; /* so image doesn't scale too large */
 }
 nav {
-    display: flex;
+    display: flex; /* flex for easier responsiveness */
     font-size: 1.5rem;
     text-decoration: none; /* remove link underline */
-    border-bottom: var(--brightborder) 3px groove;
-    border-top: var(--brightborder) 3px groove;
+    border-bottom: var(--brightborder) 3px groove; /* more pop */
+    border-top: var(--brightborder) 3px groove; /* more pop */
 }
 /* formatting of links within the nav, flex and centered */
 nav a {
@@ -55,31 +59,32 @@ nav a {
     text-decoration: none;
     color: var(--text-light); /* text color, have to set here to override user agent stylesheet */
 }
-
 h2 {
-    background-color: var(--strips);
+    background-color: var(--strips); /* pop out from background */
     font-size: 2.5rem;
-    border-bottom: var(--brightborder) 3px groove;
-    border-top: var(--brightborder) 3px groove;
-    width: 100%;
+    border-bottom: var(--brightborder) 3px groove; /* more pop */
+    border-top: var(--brightborder) 3px groove; /* more pop */
+    width: 100%; /* show as strip across entire screen */
 }
 
-.aboutme p {
+.aboutme {
     font-size: 1.6rem;
-    text-align: start;
-    padding: 5px;
-    text-indent: 5%;
+    text-align: start; /* start instead of start in case multi-language support */
+    padding: 5px; /* readability */
+    text-indent: 5%; /* indent first line of each paragraph */
 }
 
 nav a:hover {
-    background-color: var(--primary-highlight);
+    background-color: var(--primary-highlight); /* interactive hover for links */
 }
 
 nav a:active {
-    color: var(--secondary-hightlight);
+    color: var(--secondary-hightlight); /* interactive link color */
 }
-/* display properties limited to mobile */
-@media screen and (min-width: 480px) {
+.portfolio-item:hover {
+    transform: translate(35px, 0%); /* this won't work on mobile but listed without @media restrictions so it doesn't just not work on smaller screens */
+}
+@media screen and (min-width: 480px) {      /* display properties limited to mobile */
     .header {
     }
     nav {
@@ -87,8 +92,7 @@ nav a:active {
     nav a {
     }
 }
-/* display properties for tablets */
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px) {      /* display properties for tablets */
     nav {
     }
     nav a {
