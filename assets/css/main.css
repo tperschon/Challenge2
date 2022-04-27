@@ -1,0 +1,146 @@
+/* root for variables */
+:root {
+    /* color palette */
+    --white: rgb(253, 252, 238);
+    --green: rgb(47, 116, 47);
+    --lightblue: rgb(0, 162, 255);
+    --blue: rgb(31, 127, 236);
+    --darkblue: rgb(52, 60, 177);
+    --yellow: rgb(177, 177, 0);
+    --red: red;
+    --darkred: darkred;
+    --orange: orange;
+    --brown: brown;
+    --purple: rgb(185, 52, 185);
+}
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+/* changing html default text pixel size to 10 for easier use of rem */
+html {
+    font-size: 62.5%;
+}
+
+body {
+
+}
+
+header {
+    text-align: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+/* format h1 text */
+h1 {
+    padding: 0;
+    margin: 0;
+    font-size: 4rem; /* 40 pixels */
+    color: var(--white);
+    padding-top: 2%;
+    margin-top: 0; /* removes white line from top */
+    padding-bottom: 1%;
+    text-align: center;
+    background-color: var(--green);
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+/* flex display and formatting for our nav */
+nav {
+    display: flex;
+    background-color: var(--green);
+    text-align: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+/* formatting of links within the nav, flex and centered */
+nav a {
+    color: var(--white);
+    width: 25%;
+    border-bottom: var(--orange) 3px groove;
+    text-align: center;
+    justify-content: center;
+    padding: 1%;
+    text-decoration: none;
+}
+
+h2 {
+    background-color: var(--green);
+    color: var(--white);
+    font-size: 2.5rem;
+}
+
+.aboutme p {
+    font-size: 1.6rem;
+    text-align: start;
+    padding: 5px;
+    text-indent: 5%;
+}
+
+nav a:hover {
+    background-color: var(--darkblue);
+}
+/* display properties limited to mobile */
+@media screen and (min-width: 480px) {
+    .header {
+    }
+    nav {
+    }
+    nav a {
+    }
+}
+/* display properties for tablets */
+@media screen and (min-width: 992px) {
+    nav {
+    }
+    nav a {
+    }
+}
+
+
+
+
+/* DELETE LATER */
+#mobile,
+#tablet,
+#computer {
+    display: block;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    font-size: 50px;
+    color: red;
+    opacity: 25%;
+}
+#tablet,
+#computer {
+    display: none;
+}
+@media screen and (min-width: 480px) {
+    #mobile,
+    #computer {
+        display: none;
+    }
+    #tablet {
+        display: block;
+    }
+}
+@media screen and (min-width: 992px) {
+    #mobile,
+    #tablet {
+        display: none;
+    }
+    #computer {
+        display: block;
+    }
+}
+
+br {
+    display: none
+}
