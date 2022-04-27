@@ -1,17 +1,10 @@
 /* root for variables */
 :root {
     /* color palette */
-    --white: rgb(253, 252, 238);
-    --green: rgb(47, 116, 47);
-    --lightblue: rgb(0, 162, 255);
-    --blue: rgb(31, 127, 236);
-    --darkblue: rgb(52, 60, 177);
-    --yellow: rgb(177, 177, 0);
-    --red: red;
-    --darkred: darkred;
-    --orange: orange;
-    --brown: brown;
-    --purple: rgb(185, 52, 185);
+    --strips: #222283;
+    --text-light: #fff6d1;
+    --backgrounds: #1f1a1af3;
+    --brightborder: #df9100;
 }
 * {
     margin: 0 auto;
@@ -23,57 +16,58 @@ html {
 }
 
 body {
-
+    display: flex; /* flex for simpler responsiveness */
+    flex-direction: column; /* column for mobile-first */
+    background-color: var(--backgrounds); /* catchall background color */
+    width: 100%;
+    color: var(--text-light); /* text color to contrast with darker page theme */
+    text-align: center; /* centering text within content */
 }
-
 header {
-    text-align: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+    justify-content: center; /* centering all content */
+    background-color: var(--strips);
+    width: 100%;
 }
 /* format h1 text */
 h1 {
-    padding: 0;
-    margin: 0;
+    margin: 0; /* removing margin so there isn't extra space, screen size is a premium */
     font-size: 4rem; /* 40 pixels */
-    color: var(--white);
-    padding-top: 2%;
+    color: var(--text-light); /* text color */
+    padding-top: 2%; /* padding for readability, phones often are crowded at the top */
     margin-top: 0; /* removes white line from top */
-    padding-bottom: 1%;
-    text-align: center;
-    background-color: var(--green);
-}
-
-img {
-    display: block;
+    padding-bottom: 1%; /* readability */
+    background-color: var(--strips); /* background color */
     width: 100%;
 }
-
-/* flex display and formatting for our nav */
+#portrait {
+    background-color: var(--strips); /* background color for in case screen scales up beyond max img size */
+}
+/* setting image scale up with screen but max size */
+#portrait img {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+}
+/* flex display for our nav, some alignment stuff */
 nav {
     display: flex;
-    background-color: var(--green);
-    text-align: center;
-    justify-content: center;
     font-size: 1.5rem;
-    text-decoration: none;
+    text-decoration: none; /* remove link underline */
+    border-bottom: var(--brightborder) 3px groove;
+    border-top: var(--brightborder) 3px groove;
 }
 /* formatting of links within the nav, flex and centered */
 nav a {
-    color: var(--white);
-    width: 25%;
-    border-bottom: var(--orange) 3px groove;
-    text-align: center;
-    justify-content: center;
-    padding: 1%;
+    width: 33.33%;
+    padding: 1%; /* a little space for increased readability */
     text-decoration: none;
 }
 
 h2 {
-    background-color: var(--green);
-    color: var(--white);
+    background-color: var(--strips);
     font-size: 2.5rem;
+    border-bottom: var(--brightborder) 3px groove;
+    border-top: var(--brightborder) 3px groove;
 }
 
 .aboutme p {
