@@ -48,12 +48,12 @@ h1 {
 }
 
 img {
-    display: block;
+    display: block; /* gets rid of bottom line */
 }
 
 #portrait img {
     width: 100%; /* so image does not cause scrolling */
-    max-width:  600px; /* so image doesn't scale too large */
+    max-width:  400px; /* so image doesn't scale too large */
 }
 
 nav {
@@ -96,35 +96,64 @@ nav a:active {
 }  
 
 .portfolio {
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
+    display: flex; /* flex positioning for scaling screen size */
+    flex-wrap: wrap; /* items will wrap down when screen gets smaller */
     overflow: hidden;
     padding-top: 3%;
     padding-bottom: 3%;
+    align-items: center;
+    padding: 3%;
+}
+
+.portfolio :nth-child(n) { /* ordering for portolio-items */
+    order: 4;
+}
+
+.portfolio :nth-child(1) { /* ordering for portolio-items */
+    order: -1;
+    width: 100%; /* manipulate within to show more */
+}
+.portfolio :nth-child(2) { /* ordering for portolio-items */
+    order: 1;
+}
+.portfolio :nth-child(3) { /* ordering for portolio-items */
+    order: 3;
 }
 
 .portfolio-item {
-    border-radius: 50%;
-    overflow: hidden;
+    width: 25%;
+    position: relative; /* relative so it pairs with the labeling span */
+    border-radius: 50%; /* circular items */
+    overflow: hidden; /* so they don't overflow their boundaries and the border actually works */
+}
+
+.portfolio-item span {      /* labels for items */
+    font-size: 2.5rem;
+    position: absolute; /* absolute positioning and next two attributes to give it offset/overlap with image */
+    top: 20%;
+    left: -10%; /* my expectation here was to need to use a positive number to offset from left side but it seems to be offsetting from center */
+    background-color: var(--primary-highlight); /* label's color */
+    color: var(--text-light); /* label's text color */
+    transform: rotate(-30deg); /* rotate the label so it looks like a ribbon */
+    width: 100%; /* size label appropriate to the container */
 }
 
 #portfolio-item-first {
-    width: 50%;
-    border-radius: 10%;
-    max-height: 200px;
+    border-radius: 30px; /* want rounded square edges, setting it apart from other items */
+    height: 50%;
 }
 
 .portfolio-item:hover {  /* this won't work on mobile but listed without @media restrictions so it doesn't just not work on smaller screens */
-    transform: scale(1.5, 1.5);
+    transform: scale(1.05, 1.05); /* item gets larger when scrolled over */
+    z-index: 2; /* item sits above other items if they overlap */
 }
 
-#footerline {
+#footerline {       /* makes a little strip at the bottom above the footer, to denote the end of content outside of the footer */
     height: 2.5rem;
     width: 100%;
     background-color: var(--strips);
-    border-bottom: var(--brightborder) 3px groove; /* more pop */
-    border-top: var(--brightborder) 3px groove; /* more pop */
+    border-bottom: var(--brightborder) 3px groove;
+    border-top: var(--brightborder) 3px groove;
 }
 
 footer {
@@ -137,12 +166,7 @@ footer {
 }
 
 @media screen and (min-width: 480px) {      /* display properties to tablets */
-    .header {
-    }
-    nav {
-    }
-    nav a {
-    }
+    /* I don't currently have any properties I'd like to put here, leaving as placeholder. Mobile properties seem to look just fine and the desktop properties take over at 992px */
 }
 
 @media screen and (min-width: 992px) {      /* display properties for desktops */
@@ -160,17 +184,19 @@ footer {
     #aboutme {
         display: flex;
     }
-    #portrait {
-        width: 30%;
-        align-items: flex-start;
-        flex-direction: row;
+    #portfolio-item-first {
+        width: 50%;
+    }
+    .portfolio :nth-child(1)
+    {
+        order: 2;
     }
 }
 
 
 
 
-/* DELETE LATER */
+/* remove this comment and the one in the HTML at the bottom to use this tool, which shows a label in the top right showing which display properties are taking over */
 #mobile,
 #tablet,
 #computer {
