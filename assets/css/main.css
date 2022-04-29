@@ -105,14 +105,14 @@ nav a:active {
 }
 
 .portfolio-item {
-    border-style: solid;
-    border-color: var(--backgrounds);
     border-radius: 50%;
     overflow: hidden;
 }
 
 #portfolio-item-first {
-    scale: 1.25;
+    width: 50%;
+    border-radius: 10%;
+    max-height: 200px;
 }
 
 .portfolio-item:hover {  /* this won't work on mobile but listed without @media restrictions so it doesn't just not work on smaller screens */
