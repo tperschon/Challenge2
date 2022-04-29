@@ -8,26 +8,30 @@
     --primary-highlight: #8b0000;
     --secondary-hightlight: #2a85ec;
 }
+
 * {     /* stopping some annoying margin/padding issues */
     margin: 0 auto;
     padding: 0;
 }
+
 html {  /* changing html default text pixel size to 10 for easier use of rem */
     font-size: 62.5%;
 }
+
 body {
     display: flex; /* flex for simpler responsiveness */
     flex-direction: column; /* column for mobile-first */
     background-color: var(--backgrounds); /* catchall background color */
-    width: 100%;
     color: var(--text-light); /* text color to contrast with darker page theme */
     text-align: center; /* centering text within content */
 }
+
 header {
     justify-content: center; /* centering all content */
     background-color: var(--strips); /* to pop out from background */
     width: 100%; /* shows as a strip across entire screen */
 }
+
 h1 {
     margin: 0; /* removing margin so there isn't extra space, screen size is a premium */
     font-size: 4rem; /* 40 pixels */
@@ -38,13 +42,20 @@ h1 {
     background-color: var(--backgrounds); /* background color */
     width: 100%;
 }
-div {
+
+#portrait, #aboutme , #portfolio {
     width: 100%; /* so child elements width works with screen size */
 }
+
+img {
+    display: block;
+}
+
 #portrait img {
     width: 100%; /* so image does not cause scrolling */
     max-width:  600px; /* so image doesn't scale too large */
 }
+
 nav {
     display: flex; /* flex for easier responsiveness */
     font-size: 1.5rem;
@@ -52,13 +63,15 @@ nav {
     border-bottom: var(--brightborder) 3px groove; /* more pop */
     border-top: var(--brightborder) 3px groove; /* more pop */
 }
-/* formatting of links within the nav, flex and centered */
-nav a {
+
+
+nav a {     /* formatting of links within the nav, flex and centered */
     width: 33.33%;
     padding: 1%; /* a little space for increased readability */
     text-decoration: none;
     color: var(--text-light); /* text color, have to set here to override user agent stylesheet */
 }
+
 h2 {
     background-color: var(--strips); /* pop out from background */
     font-size: 2.5rem;
@@ -71,7 +84,7 @@ h2 {
     font-size: 1.6rem;
     text-align: start; /* start instead of start in case multi-language support */
     padding: 5px; /* readability */
-    text-indent: 5%; /* indent first line of each paragraph */
+    text-indent: 30px; /* indent first line of each paragraph */
 }
 
 nav a:hover {
@@ -80,11 +93,50 @@ nav a:hover {
 
 nav a:active {
     color: var(--secondary-hightlight); /* interactive link color */
+}  
+
+.portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
-.portfolio-item:hover {
-    transform: translate(35px, 0%); /* this won't work on mobile but listed without @media restrictions so it doesn't just not work on smaller screens */
+
+.portfolio-item {
+    border-style: solid;
+    border-color: var(--backgrounds);
+    border-radius: 50%;
+    overflow: hidden;
 }
-@media screen and (min-width: 480px) {      /* display properties limited to mobile */
+
+#portfolio-item-first {
+    scale: 1.25;
+}
+
+.portfolio-item:hover {  /* this won't work on mobile but listed without @media restrictions so it doesn't just not work on smaller screens */
+    transform: scale(1.5, 1.5);
+}
+
+#footerline {
+    height: 2.5rem;
+    width: 100%;
+    background-color: var(--strips);
+    border-bottom: var(--brightborder) 3px groove; /* more pop */
+    border-top: var(--brightborder) 3px groove; /* more pop */
+}
+
+footer {
+    font-size: 3rem;
+}
+
+#contact a {
+    text-decoration: none;
+    color: var(--secondary-hightlight);
+}
+
+@media screen and (min-width: 480px) {      /* display properties to tablets */
     .header {
     }
     nav {
@@ -92,10 +144,26 @@ nav a:active {
     nav a {
     }
 }
-@media screen and (min-width: 992px) {      /* display properties for tablets */
-    nav {
+
+@media screen and (min-width: 992px) {      /* display properties for desktops */
+    body {
+        flex-direction: row;
+        flex-wrap: wrap;
     }
-    nav a {
+    header {
+        width: 100%;
+    }
+    .portfolio-item {
+        display: block;
+        flex-wrap: wrap;
+    }
+    #aboutme {
+        display: flex;
+    }
+    #portrait {
+        width: 30%;
+        align-items: flex-start;
+        flex-direction: row;
     }
 }
 
