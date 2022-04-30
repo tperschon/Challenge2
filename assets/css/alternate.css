@@ -1,0 +1,143 @@
+:root {         /* root for variables */
+    /* color palette */
+    --strips: #2a2a69;
+    --text-light: #b9b8b4;
+    --backgrounds: #1f1a1af3;
+    --brightborder: #df9100;
+    --primary-highlight: #8b0000;
+    --secondary-hightlight: #2a85ec;
+}
+
+* {             /* stopping some annoying margin/padding issues */
+    margin: 0 auto;
+    padding: 0;
+}
+
+html {          /* changing html default text pixel size to 10 for easier use of rem */
+    font-size: 62.5%;
+}
+
+header { 
+    padding: 2% 4%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 92%;
+    background-color: var(--backgrounds);
+    color: var(--text-light);
+    border-bottom: 5px ridge var(--secondary-hightlight);
+}
+
+h1 {
+    padding-left: 3%;
+    font-size: 4rem;
+    flex-grow: 0;
+    margin: 0;
+    padding: 0;
+}
+
+header img {
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    width: 40%;
+}
+
+ul {
+    display: inline-flex;
+    width: 100%;
+    font-size: 2rem;
+    justify-content: space-around;
+    list-style: none;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-light);
+    overflow: hidden;
+}
+
+#portfolio-section {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    background-color: var(--backgrounds);
+    color: var(--text-light);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.label {
+    display: flex;
+    margin: 0 auto;
+    padding-right: 2%;
+    width: 18%;
+    font-size: 3rem;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+#portfolio {
+    text-align: right;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.portfolio-item {
+    margin: 1%;
+    overflow: hidden;
+}
+
+#portfolio-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    width: 82%;
+    border-left: 5px ridge var(--secondary-hightlight);
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-item img {
+    display: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: auto;
+    max-height: 200px;
+    width: 100%;
+    overflow: hidden;
+}
+
+#portfolio-items :nth-child(1) {
+    width: 92%;
+    justify-content: center;
+}
+
+.portfolio-item span {      /* labels for items */
+    font-size: 2.5rem;
+    position: absolute; /* absolute positioning and next two attributes to give it offset/overlap with image */
+    top: 20%;
+    left: -10%; /* my expectation here was to need to use a positive number to offset from left side but it seems to be offsetting from center */
+    background-color: var(--primary-highlight); /* label's color */
+    color: var(--text-light); /* label's text color */
+    transform: rotate(-30deg); /* rotate the label so it looks like a ribbon */
+    width: 100%; /* size label appropriate to the container */
+    text-align: center;
+    transform: scale(.5 .5);
+    overflow: hidden;
+}

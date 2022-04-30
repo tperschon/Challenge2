@@ -1,5 +1,4 @@
-/* root for variables */
-:root {
+:root {         /* root for variables */
     /* color palette */
     --strips: #2a2a69;
     --text-light: #b9b8b4;
@@ -99,10 +98,9 @@ nav a:active {
     display: flex; /* flex positioning for scaling screen size */
     flex-wrap: wrap; /* items will wrap down when screen gets smaller */
     overflow: hidden;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    align-items: center;
     padding: 3%;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .portfolio :nth-child(n) { /* ordering for portolio-items */
@@ -121,7 +119,8 @@ nav a:active {
 }
 
 .portfolio-item {
-    width: 25%;
+    width: 22%;
+    margin: 1%;
     position: relative; /* relative so it pairs with the labeling span */
     border-radius: 50%; /* circular items */
     overflow: hidden; /* so they don't overflow their boundaries and the border actually works */
