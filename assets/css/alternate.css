@@ -17,127 +17,104 @@ html {          /* changing html default text pixel size to 10 for easier use of
     font-size: 62.5%;
 }
 
-header { 
-    padding: 2% 4%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 92%;
+header {        /* header contains h1, an image and also the nav */
+    width: 92%; /* only 92% because below side padding */
+    padding: 2% 4%; /* padding so stuff isn't stuck to edges */
+    display: inline-flex; /* inline flex so stuff isn't growing to fit*/
+    align-items: center; /* centering items vertically */
+    justify-content: space-between; /* space-between so that nav is on right, name is on left */
     background-color: var(--backgrounds);
     color: var(--text-light);
-    border-bottom: 5px ridge var(--secondary-hightlight);
+    border-bottom: 5px ridge var(--secondary-hightlight); /* denotes end of header and beginning of content */
 }
 
 h1 {
-    padding-left: 3%;
-    font-size: 4rem;
-    flex-grow: 0;
+    padding-left: 3%; /* spacing it even further from left so it's more squared with screen, have to do this independently so it doesn't also affect the rest of the elements */
+    font-size: 4rem; 
     margin: 0;
-    padding: 0;
+    padding: 0; 
 }
 
 header img {
-    max-height: 200px;
+    max-height: 200px; /* limiting max dimensions of portrait */
     max-width: 200px;
-    border-radius: 50%;
+    border-radius: 50%; /* circular image, like an avatar */
     margin: 0;
     padding: 0;
 }
 
 nav {
-    display: inline-flex;
     margin: 0;
     padding: 0;
-    width: 40%;
+    width: 40%; /* nav does't want to be too big */
 }
 
 ul {
-    display: inline-flex;
-    width: 100%;
+    display: inline-flex; /* making the list items go in-line */
+    width: 100%; /* ul will take up entirety of nav */
     font-size: 2rem;
-    justify-content: space-around;
-    list-style: none;
-    text-align: center;
+    list-style: none; /* delete bullets */
 }
 
 a {
-    text-decoration: none;
-    color: var(--text-light);
-    overflow: hidden;
+    text-decoration: none; /* remove link underlines */
+    color: var(--text-light); /* color font to contrast */
 }
 
-#portfolio-section {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
+section {
+    display: flex; /* allows us to manipulate content how we want */
+    align-items: center; /* centers content within their containers */
     background-color: var(--backgrounds);
     color: var(--text-light);
-    width: 100%;
+    width: 100%; /* section will fit screen */
     margin: 0;
     padding: 0;
-    height: 100%;
+    border-bottom: 5px ridge var(--secondary-hightlight); /* denotes end of one section and/or start of another */
 }
 
-.label {
-    display: flex;
-    margin: 0 auto;
-    padding-right: 2%;
-    width: 18%;
-    font-size: 3rem;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
-}
-
-#portfolio {
-    text-align: right;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+.section-label {
+    width: 18%; /* don't want section labels to take up too much space from content */
+    font-size: 3rem; /* bigger text to clearly denote content */
+    text-align: right; /* align with border */
+    padding-right: 1%; /* space the label from the border a bit */
 }
 
 .portfolio-item {
-    margin: 1%;
-    overflow: hidden;
+    position: relative; /* necessary for child behaviors */
+    margin: 1%; /* spacing between border and items */
+    overflow: hidden; /* hides overflow, used for labels on items */
+    flex-grow: 1; /* items will grow to fit entirely of width of flex space so there isn't big empty swathes on the page */
+    max-height: 500px; /* limits size of items, gets overriden for the first item later */
 }
 
-#portfolio-items {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.container {
+    display: flex; /* block display wouldn't work how we want */
+    position: relative; /* necessary for child behaviors */
+    flex-wrap: wrap; /* flex items force shrink primary or spill off page */
     margin: 0;
     padding: 0;
-    width: 82%;
-    border-left: 5px ridge var(--secondary-hightlight);
-    position: relative;
-    overflow: hidden;
+    width: 82%; /* the remainder of page after label */
+    border-left: 5px ridge var(--secondary-hightlight); /* denotes label from content */
 }
 
 .portfolio-item img {
-    display: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    height: auto;
-    max-height: 200px;
-    width: 100%;
-    overflow: hidden;
+    border-radius: 20px; /* rounded edges */
 }
 
-#portfolio-items :nth-child(1) {
-    width: 92%;
-    justify-content: center;
+.container :nth-child(1) {
+    max-height: 100%; /* this one is special so it gets to have its full space */
+    width: 100%; /* this one is special so it gets to have its full space */
 }
 
 .portfolio-item span {      /* labels for items */
     font-size: 2.5rem;
     position: absolute; /* absolute positioning and next two attributes to give it offset/overlap with image */
-    top: 20%;
-    left: -10%; /* my expectation here was to need to use a positive number to offset from left side but it seems to be offsetting from center */
+    top: 15%;
+    left: -20%; /* my expectation here was to need to use a positive number to offset from left side but it seems to be offsetting from center */
     background-color: var(--primary-highlight); /* label's color */
     color: var(--text-light); /* label's text color */
     transform: rotate(-30deg); /* rotate the label so it looks like a ribbon */
-    width: 100%; /* size label appropriate to the container */
+    width: 115%; /* size label appropriate to the container */
     text-align: center;
     transform: scale(.5 .5);
-    overflow: hidden;
 }
