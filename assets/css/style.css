@@ -153,7 +153,7 @@ a:hover {
 }
 
 
-@media screen and (max-width: 600px) {      /* properties for mobile */
+@media screen and (max-width: 768px) {      /* properties for mobile */
     
     body {
         background-color: var(--backgrounds); /* learned something here, this background adds to above background for darker, leaving it because it makes content pop a bit */
@@ -225,7 +225,7 @@ a:hover {
         margin: 1%; /* spacing between border and items */
         overflow: hidden; /* hides overflow, used for labels on items */
         flex-grow: 1; /* items will grow to fit entirely of width of flex space so there aren't big empty swathes on the page */
-        max-height: 150px; /* limits size of items, gets overriden for the first item later */
+        max-height: 170px; /* limits size of items, gets overriden for the first item later */
         opacity: 1; /* override lower opacity on default display properties */
     }
 
@@ -249,6 +249,7 @@ a:hover {
     .portfolio :nth-child(1) { /* don't want to affect anything beyond the first */
         max-width: 100%; /* this one is special so it gets to have its full space */
         height: 100%; /* this one is special so it gets to have its full space */
+        min-height: 200px; /* always be bigger than other portfolio-items */
     }
 
     .portfolio-item span {      /* labels for items */

@@ -34,54 +34,69 @@
 
 * THEN I am presented with a responsive layout that adapts to my viewport
 
-## Grading Requirements
+## Information on index.html
+```
+The document is linked to assets/css/style.css
+Normalize.css is used as a css reset
+Comments are found throughout the entirety of style.css
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+At the top of the page, there is a header with my name, portrait and a navigation bar
+Scrolling over navigation bar items causes them to glow
+Clicking on a navigation bar item takes you to different parts of the page corresponding to their HTML id
+The first portfolio item in the portfolio section is larger than the rest, taking the entire width of the flex space
+The rest of the portfolio items scale across the flex space
+Each portfolio item takes you to a live site with an app
+The about me section has many paragraphs with information about me
+The paragraphs use flex to display in rows, and are each indented on their first line
+The contact me section contains hyperlinks to different methods of contacting me
+Each hyperlink is live and will navigate you, if possible, to a method of contacting me
+The footer is included within the contact me section, intentionally as it fits quite nicely
 
-This Challenge is graded based on the following criteria: 
+Semantic elements are used within the document to give it accessibility
+Images have alt text for accessibility
+Changing screen sizes will cause the document to change responsively
+Only one additional breakpoint is specified, more can be added but it did not seem necessary given how the page scales
+```
+## Information on portfolio.html
+```
+The document is linked to assets/css/main.css & assets/css/normalize.css
+Normalize.css is used as a css reset
+Comments are found throughout the entirety of main.css
 
-### Technical Acceptance Criteria: 40%
+This was my first pass at this assignment
+I thought the look was a little dated so I wanted to make another version
+Rather than start over, I decided to use link cross link the documents rather than simply use placeholders
 
-* Satisfies all of the above acceptance criteria.
+At the top of the page, you can see my name
+Below my name, you'll see a navigation bar
+Hovering over items on the navigation bar will illuminate the entire around each navigation bar item
+Clicking on a navigation bar item takes you to different parts of the page corresponding to their HTML id
+Below the navigation bar is my portrait
+Below my portrait, the page is sectioned vertically, with the about me section first
+Each section of the page has a centered title with a background and border, giving it the appearance of a strip
+When viewed on a large screen, the about me section used a column flex display to separate the paragraphs
+Paragraphs are indented on their first line
+When viewed on a smaller screen, the about me section goes to a vertical display
+After the about me section is the portfolio section
+Each portfolio item takes you to a live site with an app
+Below the portfolio section is a strip that denotes the footer away from everything else
+The footer contains the contact html id and a hyperlink to email me
 
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme with description, screenshot, link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository that contains your code. Give the repository a unique name and include a README file that describes the project.
+Semantic elements are used within the document to give it accessibility
+Images of halt text for accessibility
+Changing screen sizes will cause the document to change responsively
+Only one additional breakpoint is specified. I had more planned initially but decided to start index.html instead
+```
+## CSS Information
+```
+main.css has a set of rules at the bottom that are commented out
+This ruleset provides a tool to see when different screen breakpoints take over
+This tool displays one of three faded spans, whose visibility depends on the width, in the top right corner
+These spans denote what device type is being attempted to cater for, between mobile, tablet and desktop
+I did not include this tool in style.css as I had gotten more used to things by then
+```
+## Image Information
+```
+Images are shared between the documents
+Images are of my own projects I built or of myself
+```

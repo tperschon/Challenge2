@@ -103,27 +103,37 @@ nav a:active {
     justify-content: space-evenly;
 }
 
+.portfolio-item img {
+    max-height: 400px;
+    min-height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+#portfolio-item-first img {
+    max-height: 400px;
+}
+.portfolio-item {
+    margin: 1%;
+    width: 48%;
+    max-height: 400px;
+    position: relative; /* relative so it pairs with the labeling span */
+    border-radius: 50%; /* circular items */
+    overflow: hidden; /* so they don't overflow their boundaries and the border actually works */
+}
+
+
 .portfolio :nth-child(n) { /* ordering for portolio-items */
     order: 4;
 }
 
 .portfolio :nth-child(1) { /* ordering for portolio-items */
     order: -1;
-    width: 100%; /* manipulate within to show more */
 }
 .portfolio :nth-child(2) { /* ordering for portolio-items */
     order: 1;
 }
 .portfolio :nth-child(3) { /* ordering for portolio-items */
     order: 3;
-}
-
-.portfolio-item {
-    width: 22%;
-    margin: 1%;
-    position: relative; /* relative so it pairs with the labeling span */
-    border-radius: 50%; /* circular items */
-    overflow: hidden; /* so they don't overflow their boundaries and the border actually works */
 }
 
 .portfolio-item span {      /* labels for items */
@@ -139,7 +149,7 @@ nav a:active {
 
 #portfolio-item-first {
     border-radius: 30px; /* want rounded square edges, setting it apart from other items */
-    height: 50%;
+    width: 100%;
 }
 
 .portfolio-item:hover {  /* this won't work on mobile but listed without @media restrictions so it doesn't just not work on smaller screens */
@@ -176,26 +186,31 @@ footer {
     header {
         width: 100%;
     }
-    .portfolio-item {
-        display: block;
-        flex-wrap: wrap;
-    }
     #aboutme {
         display: flex;
     }
+    .portfolio-item img {
+        object-fit: cover;
+        height: 400px;
+        width: 400px;
+    }
+    
+    .portfolio-item {
+        max-width: 22%;
+    }
     #portfolio-item-first {
-        width: 50%;
+        max-width: 50%;
     }
     .portfolio :nth-child(1)
     {
+        width: 100%;
         order: 2;
     }
 }
 
 
 
-
-/* remove this comment and the one in the HTML at the bottom to use this tool, which shows a label in the top right showing which display properties are taking over */
+ 
 #mobile,
 #tablet,
 #computer {
