@@ -83,7 +83,7 @@ section {
     position: relative; /* necessary for child behaviors */
     margin: 1%; /* spacing between border and items */
     overflow: hidden; /* hides overflow, used for labels on items */
-    flex-grow: 1; /* items will grow to fit entirely of width of flex space so there isn't big empty swathes on the page */
+    flex-grow: 1; /* items will grow to fit entirely of width of flex space so there aren't big empty swathes on the page */
     max-height: 500px; /* limits size of items, gets overriden for the first item later */
     opacity: .6; /* overriden by hover, to give emphasis */
 }
@@ -91,7 +91,7 @@ section {
 .container {
     display: flex; /* block display wouldn't work how we want */
     position: relative; /* necessary for child behaviors */
-    flex-wrap: wrap; /* flex items force shrink primary or spill off page */
+    flex-wrap: wrap; /* flex items don't force shrink primary or spill off page */
     margin: 0;
     padding: 0;
     width: 82%; /* the remainder of page after label */
@@ -104,7 +104,7 @@ section {
     border-radius: 20px; /* rounded edges */
 }
 
-.portfolio :nth-child(1) { /* don't want to affect anything beyond the first container */
+.portfolio :nth-child(1) { /* don't want to affect anything beyond the first */
     max-height: 100%; /* this one is special so it gets to have its full space */
     width: 100%; /* this one is special so it gets to have its full space */
 }
@@ -117,15 +117,15 @@ section {
     background-color: var(--primary-highlight); /* label's color */
     color: var(--text-light); /* label's text color */
     transform: rotate(-30deg); /* rotate the label so it looks like a ribbon */
-    width: 115%; /* size label appropriate to the container */
+    width: 115%; /* size label appropriate to the container plus a little so it corners never show */
     text-align: center;
     transform: scale(.5 .5);
 }
 
 p {
-    text-indent: 30px;
-    flex-direction: row;
-    padding: .5%;
+    text-indent: 30px; /* indent first line of each paragraph */
+    flex-direction: row; /* each paragraph flexes down not across */
+    padding: .5%; /* a little space between each */
 }
 
 .container div {
@@ -141,6 +141,10 @@ span a {
     color: var(--secondary-hightlight);
 }
 
+a:hover {
+    text-shadow: 0 0 35px var(--brightborder);
+}
+
 .portfolio-item:hover {     /* hover emphasis on portfolio items */
     opacity: 1; /* overrides normally faded items */
     transform: scale(1.01, 1.01); /* grows them slightly so that they noticeably move */
@@ -149,28 +153,25 @@ span a {
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {      /* properties for mobile */
     
-    /* {
-        margin: 0;
-        padding: 0;
-        color: var(--text-light);
-        opacity: 1;
-        border: none;
-        display: block;
-    }*/
+    body {
+        background-color: var(--backgrounds); /* learned something here, this background adds to above background for darker, leaving it because it makes content pop a bit */
+        margin: 3px; /* offset content from edges so it's more readable */
+    }
 
     header {        /* header contains h1, an image and also the nav */
-        width: 100%; /* only 92% because below side padding */
-        display: block; /* inline flex so stuff isn't growing to fit*/
-        justify-content: center;
-        text-align: center;
+        width: 100%; /* takes up entirety of body */
+        padding: 0;
+        display: block; /* block for vertical display */
+        text-align: center; /* center content */
         background-color: var(--backgrounds);
         color: var(--text-light);
         border-bottom: 3px solid var(--secondary-hightlight); /* denotes end of header and beginning of content */
     }
 
-    h1 {font-size: 4rem; 
+    h1 {
+        font-size: 4rem;
         margin: 0;
         padding: 0; 
     }
@@ -186,7 +187,7 @@ span a {
     nav {
         margin: 0;
         padding: 0;
-        width: 100%; /* nav does't want to be too big */
+        width: 100%; /* full nav width on mobile */
     }
 
     ul {
@@ -202,40 +203,41 @@ span a {
     }
 
     section {
-        display: flex; /* allows us to manipulate content how we want */
+        display: block; /* block for vertical display on smaller screens */
         align-items: center; /* centers content within their containers */
         background-color: var(--backgrounds);
         color: var(--text-light);
         width: 100%; /* section will fit screen */
         margin: 0;
         padding: 0;
-        border-bottom: 3px solid var(--secondary-hightlight); /* denotes end of one section and/or start of another */
+        padding-bottom: 2px; /* a little offset from section label */
+        border-bottom: 3px solid var(--secondary-hightlight); /* helps denote edge of section/label */
     }
 
     .section-label {
-        width: 18%; /* don't want section labels to take up too much space from content */
+        width: 100%; /* don't want section labels to take up too much space from content */
         font-size: 3rem; /* bigger text to clearly denote content */
-        text-align: right; /* align with border */
-        padding-right: 1%; /* space the label from the border a bit */
+        text-align: center; /* align text with center on vertical/mobile display */
     }
 
     .portfolio-item {
         position: relative; /* necessary for child behaviors */
         margin: 1%; /* spacing between border and items */
         overflow: hidden; /* hides overflow, used for labels on items */
-        flex-grow: 1; /* items will grow to fit entirely of width of flex space so there isn't big empty swathes on the page */
-        max-height: 500px; /* limits size of items, gets overriden for the first item later */
-        opacity: .6; /* overriden by hover, to give emphasis */
+        flex-grow: 1; /* items will grow to fit entirely of width of flex space so there aren't big empty swathes on the page */
+        max-height: 150px; /* limits size of items, gets overriden for the first item later */
+        opacity: 1; /* override lower opacity on default display properties */
     }
 
     .container {
         display: flex; /* block display wouldn't work how we want */
         position: relative; /* necessary for child behaviors */
-        flex-wrap: wrap; /* flex items force shrink primary or spill off page */
+        flex-wrap: wrap; /* flex items don't force shrink primary or spill off page */
         margin: 0;
         padding: 0;
-        width: 82%; /* the remainder of page after label */
-        border-left: 3px solid var(--secondary-hightlight); /* denotes label from content */
+        width: 100%; /* the remainder of page after label */
+        border-left: none;
+        border-top: 3px solid var(--secondary-hightlight); /* denotes label from content */
         font-size: 2rem;
     }
 
@@ -244,9 +246,9 @@ span a {
         border-radius: 20px; /* rounded edges */
     }
 
-    .portfolio :nth-child(1) { /* don't want to affect anything beyond the first container */
-        max-height: 100%; /* this one is special so it gets to have its full space */
-        width: 100%; /* this one is special so it gets to have its full space */
+    .portfolio :nth-child(1) { /* don't want to affect anything beyond the first */
+        max-width: 100%; /* this one is special so it gets to have its full space */
+        height: 100%; /* this one is special so it gets to have its full space */
     }
 
     .portfolio-item span {      /* labels for items */
@@ -257,23 +259,23 @@ span a {
         background-color: var(--primary-highlight); /* label's color */
         color: var(--text-light); /* label's text color */
         transform: rotate(-30deg); /* rotate the label so it looks like a ribbon */
-        width: 115%; /* size label appropriate to the container */
+        width: 115%; /* size label appropriate to the container plus a little so it corners never show */
         text-align: center;
         transform: scale(.5 .5);
     }
 
     p {
-        text-indent: 30px;
-        flex-direction: row;
-        padding: .5%;
+        text-indent: 30px; /* indent first line of each paragraph */
+        flex-direction: row; /* each paragraph flexes down not across */
+        padding: .5%; /* a little space between each */
     }
+
 
     .container div {
         flex-direction: column;
-        width: 46%;
-        margin: 1%;
+        width: 100%;
         flex-wrap: wrap;
-        font-size: 4rem;
+        font-size: 2rem;
         text-align: center;
     }
     span a {
